@@ -6,7 +6,7 @@ services:
     volumes:
       - ../:/var/www
     networks:
-      - app-network
+      - app-network-pl
 
   nginx:
     image: nginx:latest
@@ -17,20 +17,29 @@ services:
       - ../:/var/www
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
-      - app-network
+      - app-network-pl
 
   db:
     image: mysql:5.6
+    restart: always
     ports:
       - "3338:3306"
     container_name: product_listing-db
-    volumes:
-      - ./storage/mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
+    # volumes:
+    #   - ./storage/mysql:/var/lib/mysql
+    # environment:
+      # MYSQL_DATABASE: product_listing_db
+      # MYSQL_USER: user
+      # MYSQL_PASSWORD: root
+      # MYSQL_ROOT_PASSWORD: root
+      # MYSQL_DATABASE: ${DB_DATABASE}
+      # MYSQL_USER: ${DB_USER}
+      # MYSQL_PASSWORD: ${DB_PASS}
+      # MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    env_file: "../.env"
     networks:
-      - app-network
+      - app-network-pl
 
 networks:
-  app-network:
+  app-network-pl:
     driver: bridge
