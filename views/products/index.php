@@ -4,19 +4,19 @@
         <div class="col-8">
             <div class="h1">Product List</div>
         </div>
-        <div class="col-1">
+        <div class="col-lg-1">
             <a
                 href="/add-product"
                 class="btn btn-outline-success">
                 ADD
             </a>
         </div>
-        <div class="col-2">
+        <div class="col-lg-2">
             <button
                 type="submit"
                 name="delete-multi-prod"
                 form="delete-product"
-                class="btn btn-outline-danger <?= !$products ? 'disabled':'' ?>"
+                class="btn btn-outline-danger <?= !$products ? 'disabled' : '' ?>"
                 id="delete-product-btn">
                 MASS DELETE
             </button>
@@ -29,7 +29,7 @@
             if ($products) {
                 foreach ($products as $product) {
             ?>
-                    <div class="col-3 product my-3">
+                    <div class="col-12-sm col-lg-3 product my-3">
                         <div class="px-1 product border border-dark rounded">
                             <div class="container">
                                 <div class="row py-3 px-3">
@@ -42,22 +42,22 @@
                                     </div>
                                 </div>
                                 <div class="row fw-bolder justify-content-center text-center mb-3">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <p class="m-0"><?= $product['sku'] ?></p>
                                     </div>
                                 </div>
                                 <div class="row fw-bolder justify-content-center text-center mb-3">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <p class="m-0"><?= $product['name'] ?></p>
                                     </div>
                                 </div>
                                 <div class="row fw-bolder justify-content-center text-center mb-3">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <p class="m-0"><?= $product['price'] ?></p>
                                     </div>
                                 </div>
                                 <div class="row fw-bolder justify-content-center text-center mb-3">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <p class="m-0"> <?= $product['specs'] ?> </p>
                                     </div>
                                 </div>
