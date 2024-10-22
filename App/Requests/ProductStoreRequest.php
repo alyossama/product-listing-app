@@ -17,7 +17,7 @@ class ProductStoreRequest
     {
         $rules = [
             "sku" => ['required', 'alphaNumeric', 'unique'],
-            "name" => ['required', 'alphaNumeric'],
+            "name" => ['required', 'alpha'],
             "price" => ['required', 'numeric'],
             "type" => ['required'],
             "size" => ['required', 'numeric'],
