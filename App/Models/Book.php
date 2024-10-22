@@ -54,7 +54,6 @@ class Book extends Product
                 ':weight' => $this->weight,
                 ':created_at' => date('Y-m-d H:i:s', time()),
             ]);
-            $productStmt->execute();
             $this->db->commit();
         } catch (\Throwable $e) {
             if ($this->db->inTransaction()) {
