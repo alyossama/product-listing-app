@@ -40,12 +40,14 @@ class Book extends Product
     {
         try {
             $this->db->beginTransaction();
+
             $productStmt  = $this->db
                 ->prepare(
                     "INSERT INTO products (sku,name,price,type,weight,created_at)
                  VALUES
                  (:sku,:name,:price,:type,:weight,:created_at)"
                 );
+
             $productStmt->execute([
                 ':sku' => $this->sku,
                 ':name' => $this->name,
@@ -54,6 +56,7 @@ class Book extends Product
                 ':weight' => $this->weight,
                 ':created_at' => date('Y-m-d H:i:s', time()),
             ]);
+
             $this->db->commit();
         } catch (\Throwable $e) {
             if ($this->db->inTransaction()) {
