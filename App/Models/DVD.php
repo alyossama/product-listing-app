@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\GeneralTrait;
-
 class DVD extends Product
 {
-    use GeneralTrait;
-
     private $size;
 
     public function __construct($sku, $name, $price, $type, $size)

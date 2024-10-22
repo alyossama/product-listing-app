@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\GeneralTrait;
-
 class Furniture extends Product
 {
-    use GeneralTrait;
     private $length;
     private $width;
     private $height;
@@ -121,7 +118,7 @@ class Furniture extends Product
             'sku' => $this->getSku(),
             'name' => $this->getName(),
             'price' => $this->getPrice(),
-            'specs' => 'Dimensions:' . $this->getLength() . 'x' . $this->getWidth() . 'x' . $this->getHeight()
+            'specs' => 'Dimensions: ' . $this->getLength() . 'x' . $this->getWidth() . 'x' . $this->getHeight()
         ];
     }
 }

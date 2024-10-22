@@ -7,12 +7,9 @@ namespace App\Controllers;
 use App\Configs\View;
 use App\Models\ProductFactory;
 use App\Requests\ProductStoreRequest;
-use App\Traits\GeneralTrait;
 
 class ProductController
 {
-    use GeneralTrait;
-
     /**
      * Gets all products
      *
