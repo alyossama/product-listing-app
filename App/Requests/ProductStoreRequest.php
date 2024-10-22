@@ -17,7 +17,7 @@ class ProductStoreRequest
     {
         $rules = [
             "sku" => ['required', 'alphaNumeric', 'unique'],
-            "name" => ['required', 'alpha'],
+            "name" => ['required', 'alphaNumeric'],
             "price" => ['required', 'numeric'],
             "type" => ['required'],
             "size" => ['required', 'numeric'],
@@ -53,8 +53,15 @@ class ProductStoreRequest
 
     public static function validateRequired($value, $field): void
     {
+        $specialFields = ['size', 'weight', 'length', 'width', 'height'];
+
         if (isset($field) && empty($value)) {
-            self::$errors[$field]['required'] = self::$required;
+
+            if (in_array($field, $specialFields)) {
+                self::$errors[$field]['required'] = "Please, provide $field";
+            } else {
+                self::$errors[$field]['required'] = self::$required;
+            }
         }
     }
 
