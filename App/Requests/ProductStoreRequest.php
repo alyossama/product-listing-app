@@ -74,7 +74,7 @@ class ProductStoreRequest
 
     public static function validateNumeric($value, $field): void
     {
-        if (!is_numeric($value) || $value < 0) {
+        if (!is_numeric(trim($value) ) || $value < 0) {
             self::$errors[$field]['numeric'] = self::$invalid;
         }
     }
