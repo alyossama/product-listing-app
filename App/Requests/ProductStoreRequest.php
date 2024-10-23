@@ -17,7 +17,7 @@ class ProductStoreRequest
     {
         $rules = [
             "sku" => ['required', 'alphaNumeric', 'unique'],
-            "name" => ['required', 'alpha'],
+            "name" => ['required', 'alphaNumeric'],
             "price" => ['required', 'numeric'],
             "type" => ['required'],
             "size" => ['required', 'numeric'],
@@ -81,7 +81,7 @@ class ProductStoreRequest
 
     public static function validateAlphaNumeric($value, $field): void
     {
-        if (!preg_match('/^[a-zA-Z0-9]+$/', $value)) {
+        if (!preg_match('/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/', $value)) {
             self::$errors[$field]['alphaNumeric'] = self::$invalid;
         }
     }
