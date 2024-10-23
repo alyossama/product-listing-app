@@ -81,7 +81,7 @@ class ProductStoreRequest
 
     public static function validateAlphaNumeric($value, $field): void
     {
-        if (!preg_match('/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/', $value)) {
+        if (!preg_match('/^(?=.*[a-zA-Z])(?=.*\d|[a-zA-Z])[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$|^[a-zA-Z]+$/', $value)) {
             self::$errors[$field]['alphaNumeric'] = self::$invalid;
         }
     }
